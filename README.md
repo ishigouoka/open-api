@@ -42,3 +42,15 @@ $ ./generateServerInterface.sh
 
 出力されるソースのpackageを変更したい場合は、以下ファイルで変更可能。
 `api-spec/config_server.yaml`
+注）API仕様が更新されたら再度、`2. 各yamlファイルを１つに統合`が必要です。
+
+## 4'. Clientを生成
+以下コマンドで、`generated-client`配下にソースが吐き出される。
+```
+$ ./generateClient.sh
+``` 
+
+出力されるソースのpackageを変更したい場合は、以下ファイルで変更可能。
+`api-spec/config_client.yaml`
+
+注）API仕様が更新されたら再度、`2. 各yamlファイルを１つに統合`が必要です。
