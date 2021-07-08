@@ -1,0 +1,191 @@
+openapi: 3.0.0
+info:
+  title: SampleApi
+  version: '1.0'
+  contact:
+    name: A-Team
+    email: a-team@goarmy.com
+  description: 'Some description about the general point of this API, and why it exists when another similar but different API also exists.'
+servers:
+  - url: 'http://localhost:3000'
+paths:
+  '/user/{id}':
+    parameters:
+      - schema:
+          type: integer
+          format: int64
+        name: id
+        in: path
+        required: true
+    get:
+      summary: Get User Info by User ID
+      responses:
+        '200':
+          description: User Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+              examples:
+                Get User Alice Smith:
+                  value:
+                    id: 142
+                    firstName: Alice
+                    lastName: Smith
+                    sex: MALE
+        '404':
+          description: User Not Found
+      operationId: getUser
+      description: Retrieve the information of the user with the matching user ID.
+      tags:
+        - User
+  /user/register:
+    post:
+      summary: Create New User
+      operationId: registerUser
+      responses:
+        '200':
+          description: User Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+              examples:
+                New User Bob Fellow:
+                  value:
+                    id: 12
+                    firstName: Bob
+                    lastName: Fellow
+                    sex: FEMALE
+        '400':
+          description: Missing Required Information
+        '409':
+          description: Email Already Taken
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              title: RegisterUserRequest
+              type: object
+              properties:
+                firstName:
+                  type: string
+                lastName:
+                  type: string
+                sex:
+                  $ref: ../model/Sex.v1.yaml#/components/schemas/Sex
+              required:
+                - firstName
+                - lastName
+            examples:
+              Create User Bob Fellow:
+                value:
+                  firstName: Bob
+                  lastName: Fellow
+                  sex: FEMALE
+        description: Post the necessary fields for the API to create a new user.
+      description: Create a new user.
+      tags:
+        - User
+  /user/edit:
+    post:
+      summary: Edit  User
+      operationId: editUser
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Bad Request
+        '404':
+          description: Not Found
+      tags:
+        - User
+      description: Edit a user.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              title: EditUserRequest
+              type: object
+              properties:
+                id:
+                  type: integer
+                  format: int64
+                firstName:
+                  type: string
+                lastName:
+                  type: string
+                sex:
+                  $ref: ../model/Sex.v1.yaml#/components/schemas/Sex
+              required:
+                - id
+                - firstName
+                - lastName
+            examples:
+              example-1:
+                value:
+                  id: 2
+                  firstName: Tarou
+                  lastName: Yamada
+                  sex: MALE
+  /user/delete:
+    post:
+      summary: Delete User
+      operationId: deleteUser
+      responses:
+        '200':
+          description: OK
+        '404':
+          description: Not Found
+      tags:
+        - User
+      description: Delete a User.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              title: DeleteUserRequest
+              type: object
+              format: int64
+              properties:
+                id:
+                  type: integer
+                  format: int64
+              required:
+                - id
+            examples:
+              example-1:
+                value:
+                  id: 2
+
+components:
+  schemas:
+    User:
+      title: User
+      type: object
+      description: ''
+      x-examples:
+        Alice Smith:
+          id: 142
+          firstName: Alice
+          lastName: Smith
+          sex: FEMALE
+      properties:
+        id:
+          type: integer
+          description: Unique identifier for the given user.
+          format: int64
+        firstName:
+          type: string
+        lastName:
+          type: string
+        sex:
+          $ref: ../model/Sex.v1.yaml#/components/schemas/Sex
+      required:
+        - id
+        - firstName
+        - lastName
+tags: []

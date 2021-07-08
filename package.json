@@ -1,0 +1,24 @@
+{
+  "name": "open-api-project",
+  "version": "1.0.0",
+  "description": "open-api project",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ishigouoka/open-api.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@openapitools/openapi-generator-cli": "^1.0.13-4.3.1",
+    "@stoplight/prism-cli": "^3.3.2",
+    "swagger-merger": "^1.4.3",
+    "yaml": "^1.8.2"
+  }
+}
