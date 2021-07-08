@@ -15,6 +15,13 @@ npmコマンドが使えなければ、package.jsonのdependenciesを頑張っ�
 
 ## Generate Api Interface
 ### 各yamlファイルを１つに統合
+以下コマンドでapi-spec/work/index.yamlが生成されます。
 ```
-$ margeApiSpec.sh
+$ ./margeApiSpec.sh
+```
+
+### HTMLのdocumentファイルを生成
+以下コマンドで、<a href="./swagger-ui/dist/document.html">document.html</a>が生成されます。
+```
+$ ./generate-html-document.sh
 ```
