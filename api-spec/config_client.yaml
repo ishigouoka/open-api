@@ -1,0 +1,6 @@
+additionalProperties:
+  interfaceOnly: true
+  useTags: true
+  enumPropertyNaming: UPPERCASE
+  apiPackage: api/interfaces # interfaceのpackage
+  modelPackage: api/model # modelのpackage
