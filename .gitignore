@@ -1,4 +1,4 @@
-.swagger-ui
+**/swagger-ui
 .idea/*
 !.idea/codeStyles
 !.idea/copyright
