@@ -1,4 +1,4 @@
-**/swagger-ui
+./swagger-ui
 **/node_modules
 ./api-spec/work/*
 .idea/*
