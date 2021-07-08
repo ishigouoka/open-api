@@ -33,3 +33,12 @@ $ ./margeApiSpec.sh
 ```
 $ ./generate-html-document.sh
 ```
+
+## 4. ServerApiのinterfaceを生成
+以下コマンドで、`generated-server`配下にソースが吐き出される。
+```
+$ ./generateServerInterface.sh
+``` 
+
+出力されるソースのpackageを変更したい場合は、以下ファイルで変更可能。
+`api-spec/config_server.yaml`
