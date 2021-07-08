@@ -1,7 +1,8 @@
-./generated-server
+/generated-server/**
+/generated-client/**
 ./swagger-ui
 **/node_modules
-./api-spec/work/**
+/api-spec/work/**
 .idea/*
 !.idea/codeStyles
 !.idea/copyright
