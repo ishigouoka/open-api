@@ -1,5 +1,7 @@
 #!/bin/sh
 
+sh ./margeApiSpec
+
 rm -rf ./generated-server/**
 cd ./generated-server
 

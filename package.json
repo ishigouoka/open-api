@@ -16,6 +16,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@apidevtools/swagger-cli": "^4.0.4",
     "@openapitools/openapi-generator-cli": "^1.0.13-4.3.1",
     "@stoplight/prism-cli": "^3.3.2",
     "swagger-merger": "^1.4.3",
